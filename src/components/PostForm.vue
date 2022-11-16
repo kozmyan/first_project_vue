@@ -14,7 +14,7 @@
       placeholder="Описание">
 
       <button 
-      @click="createPost" 
+      @click = "createPost" 
       class="btn">Создать
       </button>
     </form>
@@ -37,7 +37,14 @@ export default {
     }
   },
   methods: {
-
+      createPost () {
+              this.post.id = Date.now();
+              this.$emit('create', this.post);
+              this.post = {
+                title: '',
+                body: '', 
+               }
+      },
   }
 }
 </script>
