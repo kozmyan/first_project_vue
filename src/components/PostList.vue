@@ -9,7 +9,7 @@
       />
    </div>
    <div v-else>
-      <h3>Список постов пуст</h3>
+      <h3 style="color: red">Список постов пуст</h3>
    </div>
 
 </template>
