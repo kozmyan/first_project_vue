@@ -1,22 +1,21 @@
 <template>
   <div>
     <form @submit.prevent>
-      <input 
+      <my-input 
       v-model="post.title" 
-      class="input" 
       type="text" 
-      placeholder="Название">
+      placeholder="Название"/>
 
-      <input 
+      <my-input 
       v-model="post.body" 
-      class="input" 
       type="text" 
-      placeholder="Описание">
+      placeholder="Описание"/>
 
-      <button 
+      <my-button 
       @click = "createPost" 
-      class="btn">Создать
-      </button>
+      class="btn_big"
+      >Создать
+      </my-button>
     </form>
 
   </div>
@@ -27,7 +26,7 @@
 <script>
 
 export default {
-
+   
   data() {
     return {
        post: {
@@ -53,24 +52,16 @@ export default {
 
 
 <style scoped>
-.input{
-   width: 100%;
-   border: 2px solid teal;
-   margin-top: 15px;
-   padding: 15px;
- }
+
 
  form{
    display: flex;
    flex-direction: column;
  }
 
- .btn{
-   border: 2px solid teal;
-   color: teal;
-   width: 150px;
-   height: 40px;
-   margin-top: 15px;
-   align-self: flex-end;
+ .btn_big{
+  margin-top: 20px;
  }
+
+ 
 </style>
