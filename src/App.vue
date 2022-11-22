@@ -4,6 +4,14 @@
    <my-button style="margin: 15px 0 35px; background: teal; color: white;"
    @click="showDialog"
    >Создать пост</my-button>
+
+   <my-select 
+     v-model="selectedSort"
+     :options="sortOptions"
+   
+   />
+
+  
  <my-dialog v-model:show="dialogVisible">
    <post-form 
    @create="createPost"
@@ -36,6 +44,11 @@ export default {
          posts: [],
          dialogVisible: false,
          isPostLoading: false,
+         selectedSort: '',
+         sortOptions: [
+            {value: 'title', name: 'По названию' },
+            {value: 'body', name: 'По содержанию' },
+         ]
       }
    },
    methods: {
@@ -65,6 +78,14 @@ export default {
          },
          mounted(){
             this.fetchPosts();
+         },
+         watch: {
+            selectedSort(newValue) {
+             
+                this.posts.sort( (post1, post2) =>{
+                    return post1[newValue]?.localeCompare(post2[newValue])
+                })
+            },
          }
 }
 </script>
