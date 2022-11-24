@@ -1,5 +1,5 @@
 <template>
-   <select class="select" v-model="modelValue" @change="changeOption">
+   <select class="select" @change="changeOption">
 
       <option disabled value="">Выберете из списка</option>
 
